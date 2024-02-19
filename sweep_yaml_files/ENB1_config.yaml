@@ -1,0 +1,52 @@
+method: random
+metric:
+  goal: minimize
+  name: Mean test loss
+parameters:
+  batch_size:
+    distribution: int_uniform
+    max: 32
+    min: 1
+  dropout_prob:
+    distribution: uniform
+    max: 1
+    min: 0
+  epochs:
+    distribution: constant
+    value: 60
+  learning_rate:
+    distribution: log_uniform
+    max: -5.29831736655
+    min: -9.90348755254
+  network:
+    distribution: categorical
+    values:
+      - EfficientNetB1
+  noise_prob:
+    distribution: uniform
+    max: 1
+    min: 0
+  optimizer:
+    distribution: categorical
+    values:
+      - AdamW
+  rotate_max:
+    distribution: uniform
+    max: 0.7854
+    min: 0.2618
+  rotate_prob:
+    distribution: uniform
+    max: 1
+    min: 0
+  spatial_dims:
+    distribution: constant
+    value: 2
+  weight_decay:
+    distribution: log_uniform
+    max: -2.996
+    min: -9.21
+  zoom_prob:
+    distribution: uniform
+    max: 1
+    min: 0
+program: aa_classification_nested_kfold.py
