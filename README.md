@@ -2,7 +2,7 @@
 
 ## Requirements
 
-The file requirements.txt lists the Python packages (and specific versions) required to run the scripts defined below.
+The file requirements.txt lists the Python packages (and specific versions) required to run the scripts defined below. The simplest way to get up and running is to start with the [MONAI docker image](https://docs.monai.io/en/latest/installation.html#from-dockerhub) or the [PyTorch NGC image](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/pytorch) and install any missing requirements using `pip`.
 
 Accompanying data can be found in the following Zenodo repository: (Zenodo DOI link will be added once available)
 
@@ -14,21 +14,21 @@ Acoustic angiography is a contrast-enhanced ultrasound imaging modality that lev
 
 Run the bash scripts in the following order:
 
-1. init_sweeps_all.sh - initiates a hyperparameter sweep using the WandB platform based on the sweep configurations defined in the sweep_yaml_files folder and outputs a file (sweepid_all.txt) containing the sweep id
-    - Change the WANDB_API_KEY (WandB api key), PROJECT (WandB project), and ENTITY (WandB username) variable definitions
+1. `init_sweeps_all.sh` - initiates a hyperparameter sweep using the WandB platform based on the sweep configurations defined in the `sweep_yaml_files` folder and outputs a file (`sweepid_all.txt`) containing the sweep id
+    - Change the `WANDB_API_KEY` (WandB api key), `PROJECT` (WandB project), and `ENTITY` (WandB username) definitions
 
-2. run_nestedkfold.sh - initiates a nested k-fold cross validation study for a selected network by running aa_classification_nested_kfold.py, tracked through WandB
-    - Change the WANDB_API_KEY (WandB api key), PROJECT (WandB project), and ENTITY (WandB username) variable definitions
-    - Change the DATA_DIR and SCRIPT_DIR paths to point to the Zenodo data directory and this GitHub directory, respectively
-    - Comment/uncomment the correct CONFIG_FILE line to run the desired network
+2. `run_nestedkfold.sh` - initiates a nested k-fold cross validation study for a selected network by running `aa_classification_nested_kfold.py`, tracked through WandB
+    - Change the `WANDB_API_KEY` (WandB api key), `PROJECT` (WandB project), and `ENTITY` (WandB username) definitions
+    - Change the `DATA_DIR` and `SCRIPT_DIR` paths to point to the Zenodo data directory and this GitHub directory, respectively
+    - Comment/uncomment the correct `CONFIG_FILE` line to run the desired network
 
-3. train_final_models.sh - loads the model configuration with the best loss for a selected network and trains the model on outerfold data by running aa_classification_nested_kfold_final_models.py, tracked through WandB
-    - Change the WANDB_API_KEY (WandB api key), PROJECT (WandB project), and ENTITY (WandB username) variable definitions
-    - Change the DATA_DIR and SCRIPT_DIR paths to point to the Zenodo data directory and this GitHub directory, respectively
-    - Comment/uncomment the correct NETWORK and SPATIAL_DIMS lines to run the desired network
+3. `train_final_models.sh` - loads the model configuration with the best loss for a selected network and trains the model on outerfold data by running `aa_classification_nested_kfold_final_models.py`, tracked through WandB
+    - Change the `WANDB_API_KEY` (WandB api key), `PROJECT` (WandB project), and `ENTITY` (WandB username) variable definitions
+    - Change the `DATA_DIR` and `SCRIPT_DIR` paths to point to the Zenodo data directory and this GitHub directory, respectively
+    - Comment/uncomment the correct `NETWORK` and `SPATIAL_DIMS` lines to run the desired network
 
-4. run_gradcam.sh - performs gradient-weighted class activation mapping (GradCAM) on the 2-D dataset by running run_gradcam_analysis.py and outputs GradCAM saliency maps in a defined GradCAM directory
-    - Change the DATA_DIR and GRADCAM_DIR paths to point to the Zenodo data directory and a directory for saving GradCAM results, respectively
+4. `run_gradcam.sh` - performs gradient-weighted class activation mapping (GradCAM) on the 2-D dataset by running `run_gradcam_analysis.py` and outputs GradCAM saliency maps in a defined GradCAM directory
+    - Change the `DATA_DIR` and `GRADCAM_DIR` paths to point to the Zenodo data directory and a directory for saving GradCAM results, respectively
 
 ## References
 
