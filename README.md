@@ -1,14 +1,14 @@
-# AA-CNN-Classification
+# Acoustic-Angiography-Classification
 
 ## Requirements
 
 The file requirements.txt lists the Python packages (and specific versions) required to run the scripts defined below. The simplest way to get up and running is to start with the [MONAI docker image](https://docs.monai.io/en/latest/installation.html#from-dockerhub) or the [PyTorch NGC image](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/pytorch) and install any missing requirements using `pip`.
 
-Accompanying data can be found in the following Zenodo repository: (Zenodo DOI link will be added once available)
+Accompanying data can be found in the following Zenodo repository: [Feasibility of deep learning-based cancer detection in ultrasound microvascular images: Dataset](https://doi.org/10.5281/zenodo.10684867)
 
 ## Overview
 
-Acoustic angiography is a contrast-enhanced ultrasound imaging modality that leverages the non-linear response of ultrasound contrast agents (also known as microbubbles) to generate high resolution and high contrast images of microvasculature with minimal tissue background[1]. Using the bash and Python scripts in this repository, we have trained convolutional neural networks (EfficientNet-B0, EfficientNet-B1, DenseNet-121, ResNet-18) to classify between acoustic angiography images (2-D) and volumes (3-D) of tumor-bearing and healthy tissue acquired in vivo in a nested k-fold cross validation study, optimizing hyperparameters on the inner folds and evaluating model performance on the outer folds. The datasets were packaged for training and are available in the Zenodo repository linked above. We utilized the WandB platform to track model training [2]. 
+Acoustic angiography is a contrast-enhanced ultrasound imaging modality that leverages the non-linear response of ultrasound contrast agents (also known as microbubbles) to generate high resolution and high contrast images of microvasculature with minimal tissue background [1]. Using the bash and Python scripts in this repository, we have trained convolutional neural networks (EfficientNet-B0, EfficientNet-B1, DenseNet-121, ResNet-18) to classify between acoustic angiography images (2-D) and volumes (3-D) of tumor-bearing and healthy tissue acquired in vivo in a nested k-fold cross validation study, optimizing hyperparameters on the inner folds and evaluating model performance on the outer folds. The datasets were packaged for training and are available in the Zenodo repository linked above. We utilized the WandB platform to track model training [2]. 
 
 ## Usage
 
@@ -33,8 +33,9 @@ Run the bash scripts in the following order:
 ## References
 
 [1] R. C. Gessner, C. B. Frederick, F. S. Foster, and P. A. Dayton, “Acoustic Angiography: A New Imaging Modality for Assessing Microvasculature Architecture,” International Journal of Biomedical Imaging, vol. 2013, p. e936593, Jul. 2013, doi: 10.1155/2013/936593.
+
 [2] L. Biewald, “Experiment tracking with weights and biases.” 2020. [Online]. Available: https://www.wandb.com/
 
 ## License
 
-The codes are licensed under the MIT license.
+All the code in this repository are licensed under the MIT license.
