@@ -38,4 +38,4 @@ Run the bash scripts in the following order:
 
 ## License
 
-All the code in this repository are licensed under the MIT license.
+All the code in this repository is licensed under the MIT license.
